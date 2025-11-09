@@ -56,25 +56,6 @@ class MovieDoublyLinkedList {
             head = newMovie;
         }
     }
-    public void removeMovieByTitle(String title) {
-        Movie current = head;
-        while (current != null) {
-            if (current.title.equals(title)) {
-                if (current.prev != null) {
-                    current.prev.next = current.next;
-                } else {
-                    head = current.next;
-                }
-                if (current.next != null) {
-                    current.next.prev = current.prev;
-                } else {
-                    tail = current.prev;
-                }
-                return;
-            }
-            current = current.next;
-        }
-    }
 }
 
     public class MovieManagementSystem {
@@ -83,7 +64,5 @@ class MovieDoublyLinkedList {
         movieList.addMovieAtEnd("Inception", "Christopher Nolan", 2010, 8.8);
         movieList.addMovieAtEnd("The Matrix", "The Wachowskis", 1999, 8.7);
         movieList.addMovieAtFirst("Interstellar", "Christopher Nolan", 2014, 8.6);
-        System.out.println("\nRemoving The Matrix:");
-        movieList.removeMovieByTitle("The Matrix");
     }
 }
